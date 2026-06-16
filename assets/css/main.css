@@ -1146,7 +1146,7 @@ section,
 # Hero Section
 --------------------------------------------------------------*/
 .hero {
-  padding: 75px 0 80px;
+  padding: 75px 0 0;
 }
 
 .hero .hero-header {
@@ -1305,6 +1305,8 @@ section,
   right: 0;
   padding: 20px 24px;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  z-index: 5;
+  pointer-events: none;
 }
 
 .hero .media-block .overlay-content .stats-row-bottom {
