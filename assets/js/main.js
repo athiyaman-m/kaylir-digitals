@@ -1,9 +1,6 @@
 /**
-* Template Name: Creativo
-* Template URL: https://bootstrapmade.com/creativo-bootstrap-creative-agency-template/
-* Updated: Mar 23 2026 with Bootstrap v5.3.8
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
+* Template Name: Kaylir Digitals
+* Author: Kaylir Digitals
 */
 
 (function() {
