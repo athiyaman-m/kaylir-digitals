@@ -21,7 +21,7 @@
   $contact->to = $receiving_email_address;
   $contact->from_name = $_POST['email'];
   $contact->from_email = $_POST['email'];
-  $contact->subject ="New Subscription: " . $_POST['email'];
+  $contact->subject = "Newsletter Signup: " . $_POST['email'] . ' | Kaylir Digitals';
 
   // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
   /*

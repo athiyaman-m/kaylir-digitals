@@ -756,6 +756,10 @@ h6 {
     margin-bottom: 40px;
   }
 
+  .footer .footer-content .logo {
+    justify-content: center;
+  }
+
   .footer .footer-links,
   .footer .footer-contact {
     margin-bottom: 40px;
@@ -995,8 +999,8 @@ textarea::placeholder {
 --------------------------------------------------------------*/
 .whatsapp-float {
   position: fixed;
-  bottom: 15px;
-  left: 15px;
+  bottom: 65px;
+  right: 15px;
   z-index: 99999;
   width: 44px;
   height: 44px;
@@ -1157,6 +1161,7 @@ section,
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -1px;
+  margin: 16px 0 0;
 }
 
 .hero .hero-header h1 .highlight {
@@ -1178,7 +1183,25 @@ section,
 .hero .hero-subtitle {
   font-size: 20px;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
-  margin-top: 20px;
+  margin: 20px 0 0;
+}
+
+.hero .hero-subtitle .hl-accent,
+.hero .hero-caption .hl-accent {
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+.hero .hero-caption {
+  font-size: 22px;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--default-color), transparent 10%);
+  margin: 24px 0 0;
+  letter-spacing: 0.3px;
+}
+
+.hero .hero-caption .highlight {
+  color: var(--accent-color);
 }
 
 .hero .hero__badge {
@@ -1444,9 +1467,21 @@ section,
     min-height: 300px;
   }
 
+  .hero .portfolio-rotator {
+    height: 340px;
+  }
+
   .hero .info-block {
     margin-top: 10px;
     padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero .portfolio-rotator {
+    height: auto;
+    aspect-ratio: 4 / 3;
+    max-height: 400px;
   }
 }
 
@@ -1466,6 +1501,12 @@ section,
 
   .hero .media-block {
     min-height: 250px;
+  }
+
+  .hero .portfolio-rotator {
+    height: auto;
+    aspect-ratio: 4 / 3;
+    max-height: 350px;
   }
 
   .hero .media-block .overlay-content {

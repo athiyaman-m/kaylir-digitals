@@ -89,10 +89,10 @@
                 <span class="badge-dot-pulse"></span>
                 <span class="badge-tagline">யாவரும் கேளிர்</span>
               </div>
-              <br>
-              <br>
+              <p class="hero-caption">We Are <span class="highlight">Digital Marketing Agency</span> in Tamil Nadu</p>
               <h1>Your Business Is <span class="highlight"> Our </span> Business</h1>
-              <p class="hero-subtitle">We study your business first. Then we build.</p>
+              <!-- <p class="hero-caption">We <span class="hl-accent">study</span> your business first. Then we <span class="hl-accent">build</span>.</p> -->
+              <br>
             </div>
           </div><!-- End Header Column -->
 
@@ -744,8 +744,8 @@
               <div class="card-body">
                 <div class="price-wrapper">
                   <span class="currency">₹</span>
-                  <span class="amount">15K</span>
-                  <span class="period">starting</span>
+                  <span class="amount">5K</span>
+                  <span class="period">starting from</span>
                 </div>
                 <p class="billing-info">Custom quote based on your needs</p>
                 <ul class="feature-list">
@@ -981,7 +981,7 @@
                       <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
                     </h3>
                     <div class="faq-answer">
-                      <p>Our website packages start at ₹15,000. The final price depends on the complexity and features you need. We provide a detailed quote after understanding your requirements during a free consultation.</p>
+                      <p>Our website packages start at ₹5,000. The final price depends on the complexity and features you need. We provide a detailed quote after understanding your requirements during a free consultation.</p>
                     </div>
                   </div><!-- End FAQ Item -->
 
@@ -1281,7 +1281,6 @@
                 </div>
                 <p>Kaylir understood our business completely and delivered exactly what we needed. Highly recommended for small businesses in Tamil Nadu!</p>
                 <div class="client-info">
-                  <img src="assets/img/person/person-f-7.webp" alt="Client" class="client-avatar">
                   <div class="client-details">
                     <span class="client-name">Saranya V.</span>
                     <span class="client-role">Small Business Owner</span>
@@ -1304,27 +1303,6 @@
       </div>
 
     </section><!-- /Contact Section -->
-    <!-- Portfolio Iframe Modal -->
-    <div class="portfolio-modal" id="portfolioModal">
-      <div class="portfolio-modal-header">
-        <button class="portfolio-modal-back" id="portfolioModalBack"><i class="bi bi-arrow-left"></i> Back</button>
-        <span class="portfolio-modal-title" id="portfolioModalTitle"></span>
-        <div class="portfolio-modal-center">
-          <span class="portfolio-modal-brand">Built by <strong>Kaylir Digitals</strong></span>
-          <a href="#contact" class="portfolio-modal-cta" id="portfolioModalCta">Get Free Consultation</a>
-        </div>
-      </div>
-      <div class="portfolio-modal-body">
-        <iframe id="portfolioModalIframe" src="" frameborder="0" allowfullscreen></iframe>
-        <div class="portfolio-modal-fallback" id="portfolioModalFallback">
-          <div class="fallback-content">
-            <i class="bi bi-exclamation-triangle"></i>
-            <p>This site cannot be displayed in an embedded view.</p>
-            <a href="#" id="portfolioModalExternalLink" target="_blank" class="fallback-btn">Open in New Tab <i class="bi bi-box-arrow-up-right"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
   </main>
 
   <footer id="footer" class="footer dark-background">
@@ -1499,52 +1477,14 @@
       }, 3000);
     })();
 
-    // Portfolio iframe modal
-    (function() {
-      const modal = document.getElementById('portfolioModal');
-      const iframe = document.getElementById('portfolioModalIframe');
-      const backBtn = document.getElementById('portfolioModalBack');
-      const titleEl = document.getElementById('portfolioModalTitle');
-      const fallback = document.getElementById('portfolioModalFallback');
-      const externalLink = document.getElementById('portfolioModalExternalLink');
-      document.querySelectorAll('.portfolio-card').forEach(function(card) {
-        card.addEventListener('click', function(e) {
-          if (e.target.closest('.glightbox')) return;
-          var url = this.getAttribute('data-url');
-          var title = this.getAttribute('data-title');
-          if (url) {
-            titleEl.textContent = title;
-            externalLink.href = url;
-            iframe.src = url;
-            fallback.style.display = 'none';
-            iframe.style.display = 'block';
-            modal.classList.add('open');
-            document.body.style.overflow = 'hidden';
-          }
-        });
+    // Portfolio cards - open in new tab
+    document.querySelectorAll('.portfolio-card').forEach(function(card) {
+      card.addEventListener('click', function(e) {
+        if (e.target.closest('.glightbox')) return;
+        var url = this.getAttribute('data-url');
+        if (url) window.open(url, '_blank');
       });
-      var iframeErrTimer;
-      iframe.addEventListener('load', function() {
-        clearTimeout(iframeErrTimer);
-        try {
-          var doc = iframe.contentDocument || iframe.contentWindow.document;
-          if (doc.body && doc.body.innerHTML.length < 50) throw 'empty';
-        } catch(e) {
-          fallback.style.display = 'flex';
-          iframe.style.display = 'none';
-        }
-      });
-      iframe.addEventListener('error', function() {
-        fallback.style.display = 'flex';
-        iframe.style.display = 'none';
-      });
-      backBtn.addEventListener('click', function() {
-        iframe.src = '';
-        modal.classList.remove('open');
-        document.body.style.overflow = '';
-        document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
-      });
-    })();
+    });
   </script>
 
   <!-- Vendor JS Files -->
