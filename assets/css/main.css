@@ -1282,23 +1282,36 @@ section,
 }
 
 @media (max-width: 576px) {
-  .hero .flash-sale {
+  .hero-header .flash-sale {
+    display: none;
+  }
+
+  .hero .flash-sale-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .hero .flash-sale-mobile .flash-sale {
+    display: flex;
     padding: 10px 16px;
     border-radius: 16px;
     justify-content: center;
+    margin: 0;
   }
 
-  .hero .flash-sale .flash-text {
+  .hero .flash-sale-mobile .flash-text {
     font-size: 13px;
   }
 
-  .hero .flash-sale .flash-timer .timer-digits {
+  .hero .flash-sale-mobile .flash-timer .timer-digits {
     min-width: 28px;
     font-size: 15px;
     padding: 3px 5px;
   }
 
-  .hero .flash-sale .flash-timer .timer-sep {
+  .hero .flash-sale-mobile .flash-timer .timer-sep {
     font-size: 15px;
   }
 }

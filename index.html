@@ -153,15 +153,36 @@
 
           </div><!-- End Media Column -->
 
-          <div class="row d-lg-none mt-3 mb-2">
-            <div class="col-12">
-              <div class="hero-mobile-actions" style="display:flex; gap:8px; justify-content:center; flex-wrap:nowrap;">
-                <a href="#portfolio" class="btn-cta-primary" style="flex:1; padding:10px 14px; font-size:13px; border-radius:10px; display:inline-flex; align-items:center; justify-content:center; gap:6px; text-decoration:none; font-weight:600; background:var(--accent-color); color:var(--contrast-color); transition:all 0.3s ease; white-space:nowrap;">
-                  <i class="bi bi-play-circle"></i> Live Demo
-                </a>
-                <a href="#contact" class="btn-cta-secondary" style="flex:1; padding:10px 14px; font-size:13px; border-radius:10px; display:inline-flex; align-items:center; justify-content:center; gap:6px; text-decoration:none; font-weight:600; background:transparent; color:var(--accent-color); border:2px solid var(--accent-color); transition:all 0.3s ease; white-space:nowrap;">
-                  <i class="bi bi-chat-dots"></i> Free Consultation
-                </a>
+          <div class="d-lg-none mt-3 mb-2" style="padding: 0 15px;">
+            <div class="hero-mobile-actions" style="display:flex; gap:8px; justify-content:center; flex-wrap:nowrap;">
+              <a href="#portfolio" class="btn-cta-primary" style="flex:1; padding:10px 14px; font-size:13px; border-radius:10px; display:inline-flex; align-items:center; justify-content:center; gap:6px; text-decoration:none; font-weight:600; background:var(--accent-color); color:var(--contrast-color); transition:all 0.3s ease; white-space:nowrap;">
+                <i class="bi bi-play-circle"></i> Live Demo
+              </a>
+              <a href="#contact" class="btn-cta-secondary" style="flex:1; padding:10px 14px; font-size:13px; border-radius:10px; display:inline-flex; align-items:center; justify-content:center; gap:6px; text-decoration:none; font-weight:600; background:transparent; color:var(--accent-color); border:2px solid var(--accent-color); transition:all 0.3s ease; white-space:nowrap;">
+                <i class="bi bi-chat-dots"></i> Free Consultation
+              </a>
+            </div>
+            <div class="flash-sale-mobile d-lg-none">
+                <div class="flash-sale">
+                  <span class="flash-badge">🔥 FLASH SALE</span>
+                  <span class="flash-text">Get <strong>30% OFF</strong> on All Services — Today Only!</span>
+                  <div class="flash-timer">
+                    <div class="timer-unit">
+                      <span class="timer-digits" id="timer-hours-m">00</span>
+                      <span class="timer-label">Hours</span>
+                    </div>
+                    <span class="timer-sep">:</span>
+                    <div class="timer-unit">
+                      <span class="timer-digits" id="timer-minutes-m">00</span>
+                      <span class="timer-label">Minutes</span>
+                    </div>
+                    <span class="timer-sep">:</span>
+                    <div class="timer-unit">
+                      <span class="timer-digits" id="timer-seconds-m">00</span>
+                      <span class="timer-label">Seconds</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1515,9 +1536,21 @@
         var hEl = document.getElementById('timer-hours');
         var mEl = document.getElementById('timer-minutes');
         var sEl = document.getElementById('timer-seconds');
+        var hElM = document.getElementById('timer-hours-m');
+        var mElM = document.getElementById('timer-minutes-m');
+        var sElM = document.getElementById('timer-seconds-m');
+        var hElP = document.getElementById('timer-hours-p');
+        var mElP = document.getElementById('timer-minutes-p');
+        var sElP = document.getElementById('timer-seconds-p');
         if (hEl) hEl.textContent = pad(hours);
         if (mEl) mEl.textContent = pad(minutes);
         if (sEl) sEl.textContent = pad(seconds);
+        if (hElM) hElM.textContent = pad(hours);
+        if (mElM) mElM.textContent = pad(minutes);
+        if (sElM) sElM.textContent = pad(seconds);
+        if (hElP) hElP.textContent = pad(hours);
+        if (mElP) mElP.textContent = pad(minutes);
+        if (sElP) sElP.textContent = pad(seconds);
       }
       updateTimer();
       setInterval(updateTimer, 1000);
