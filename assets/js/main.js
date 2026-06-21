@@ -214,4 +214,73 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
+  /**
+   * Chat Popup Toggle
+   */
+  function toggleChatPopup() {
+    const popup = document.getElementById('chatPopup');
+    const tooltip = document.getElementById('chatbotTooltip');
+    if (popup) {
+      popup.classList.toggle('open');
+    }
+    if (tooltip) {
+      tooltip.classList.remove('show');
+    }
+  }
+
+  window.toggleChatPopup = toggleChatPopup;
+
+  /**
+   * Show chatbot tooltip after user scrolls
+   */
+  let tooltipShown = false;
+  window.addEventListener('scroll', function() {
+    if (!tooltipShown && window.scrollY > 400) {
+      const tooltip = document.getElementById('chatbotTooltip');
+      if (tooltip) {
+        tooltip.classList.add('show');
+        tooltipShown = true;
+        setTimeout(function() {
+          tooltip.classList.remove('show');
+        }, 6000);
+      }
+    }
+  });
+
+  /**
+   * Smooth reveal for animated counters on scroll
+   */
+  function initScrollAnimations() {
+    const observerOptions = {
+      threshold: 0.3,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.result-card, .metric-card-modern, .industry-card, .value-card').forEach(function(el) {
+      observer.observe(el);
+    });
+  }
+
+  window.addEventListener('load', initScrollAnimations);
+
+  /**
+   * Portfolio card click handler - open in new tab
+   */
+  document.querySelectorAll('.portfolio-card').forEach(function(card) {
+    card.addEventListener('click', function(e) {
+      if (e.target.closest('.glightbox') || e.target.closest('.cs-cta')) return;
+      var url = this.getAttribute('data-url');
+      if (url) window.open(url, '_blank');
+    });
+  });
+
 })();
