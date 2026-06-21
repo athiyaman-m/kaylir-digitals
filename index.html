@@ -104,15 +104,15 @@
 
             <div class="media-block">
               <div class="portfolio-rotator">
-                <div class="rotator-slide active">
+                <div class="rotator-slide active" data-url="https://brandessence.in/">
                   <iframe src="https://www.youtube.com/embed/SjuhgWl_rmA?autoplay=1&mute=1&loop=1&playlist=SjuhgWl_rmA&controls=0&modestbranding=1&showinfo=0" allow="autoplay; encrypted-media" loading="lazy"></iframe>
                 </div>
-                <img src="assets/img/portfolio/kr-construction.png" class="img-fluid rotator-slide" alt="" loading="lazy">
-                <img src="assets/img/portfolio/app2.jpeg" class="img-fluid rotator-slide" alt="" loading="lazy">
-                <img src="assets/img/portfolio/savora.png" class="img-fluid rotator-slide" alt="" loading="lazy">
-                <img src="assets/img/portfolio/niceshop.png" class="img-fluid rotator-slide" alt="" loading="lazy">
-                <img src="assets/img/portfolio/softsync-shop.png" class="img-fluid rotator-slide" alt="" loading="lazy">
-                <img src="assets/img/portfolio/hopsticks.png" class="img-fluid rotator-slide" alt="" loading="lazy">
+                <img src="assets/img/portfolio/kr-construction.png" class="img-fluid rotator-slide" alt="" loading="lazy" data-url="https://krconstruction.vercel.app/">
+                <img src="assets/img/portfolio/app2.jpeg" class="img-fluid rotator-slide" alt="" loading="lazy" data-url="https://play.google.com/store/apps/details?id=com.vmfarmfreshmilk">
+                <img src="assets/img/portfolio/savora.png" class="img-fluid rotator-slide" alt="" loading="lazy" data-url="https://savora-two.vercel.app/">
+                <img src="assets/img/portfolio/niceshop.png" class="img-fluid rotator-slide" alt="" loading="lazy" data-url="https://niceshop-two.vercel.app/">
+                <img src="assets/img/portfolio/softsync-shop.png" class="img-fluid rotator-slide" alt="" loading="lazy" data-url="https://softsyncshop.vercel.app/">
+                <img src="assets/img/portfolio/hopsticks.png" class="img-fluid rotator-slide" alt="" loading="lazy" data-url="https://play.google.com/store/apps/details?id=com.hopsticks.app">
               </div>
               <div class="rotator-dots"></div>
               <div class="overlay-content">
@@ -137,11 +137,11 @@
 
           <div class="row d-lg-none mt-3 mb-2">
             <div class="col-12">
-              <div class="hero-mobile-actions" style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-                <a href="#portfolio" class="btn-cta-primary" style="padding:14px 28px; font-size:14px; border-radius:12px; display:inline-flex; align-items:center; gap:8px; text-decoration:none; font-weight:600; background:var(--accent-color); color:var(--contrast-color); transition:all 0.3s ease;">
+              <div class="hero-mobile-actions" style="display:flex; gap:8px; justify-content:center; flex-wrap:nowrap;">
+                <a href="#portfolio" class="btn-cta-primary" style="flex:1; padding:10px 14px; font-size:13px; border-radius:10px; display:inline-flex; align-items:center; justify-content:center; gap:6px; text-decoration:none; font-weight:600; background:var(--accent-color); color:var(--contrast-color); transition:all 0.3s ease; white-space:nowrap;">
                   <i class="bi bi-play-circle"></i> Live Demo
                 </a>
-                <a href="#contact" class="btn-cta-secondary" style="padding:14px 28px; font-size:14px; border-radius:12px; display:inline-flex; align-items:center; gap:8px; text-decoration:none; font-weight:600; background:transparent; color:var(--accent-color); border:2px solid var(--accent-color); transition:all 0.3s ease;">
+                <a href="#contact" class="btn-cta-secondary" style="flex:1; padding:10px 14px; font-size:13px; border-radius:10px; display:inline-flex; align-items:center; justify-content:center; gap:6px; text-decoration:none; font-weight:600; background:transparent; color:var(--accent-color); border:2px solid var(--accent-color); transition:all 0.3s ease; white-space:nowrap;">
                   <i class="bi bi-chat-dots"></i> Free Consultation
                 </a>
               </div>
@@ -1507,6 +1507,13 @@
         slides[current].classList.add('active');
         dotsContainer.children[current].classList.add('active');
       }, 3000);
+
+      slides.forEach(function(slide) {
+        slide.addEventListener('click', function(e) {
+          var url = this.getAttribute('data-url');
+          if (url) window.open(url, '_blank');
+        });
+      });
     })();
 
     // Portfolio cards - open in new tab
