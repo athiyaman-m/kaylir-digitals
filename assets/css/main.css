@@ -1204,6 +1204,105 @@ section,
   color: var(--accent-color);
 }
 
+.hero .flash-sale {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin-top: 20px;
+  margin-bottom: 24px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 88%), color-mix(in srgb, var(--accent-color), transparent 95%));
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 70%);
+  border-radius: 60px;
+}
+
+.hero .flash-sale .flash-badge {
+  display: inline-block;
+  padding: 5px 14px;
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.hero .flash-sale .flash-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--default-color);
+}
+
+.hero .flash-sale .flash-text strong {
+  color: var(--accent-color);
+}
+
+.hero .flash-sale .flash-timer {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.hero .flash-sale .flash-timer .timer-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero .flash-sale .flash-timer .timer-digits {
+  display: inline-block;
+  min-width: 32px;
+  padding: 4px 6px;
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.hero .flash-sale .flash-timer .timer-label {
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  margin-top: 2px;
+}
+
+.hero .flash-sale .flash-timer .timer-sep {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--accent-color);
+  margin-top: -12px;
+}
+
+@media (max-width: 576px) {
+  .hero .flash-sale {
+    padding: 10px 16px;
+    border-radius: 16px;
+    justify-content: center;
+  }
+
+  .hero .flash-sale .flash-text {
+    font-size: 13px;
+  }
+
+  .hero .flash-sale .flash-timer .timer-digits {
+    min-width: 28px;
+    font-size: 15px;
+    padding: 3px 5px;
+  }
+
+  .hero .flash-sale .flash-timer .timer-sep {
+    font-size: 15px;
+  }
+}
+
 .hero .hero__badge {
   display: inline-flex;
   align-items: center;
@@ -1559,15 +1658,8 @@ section,
 
 .about .image-gallery .gallery-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 0;
-}
-
-@media (max-width: 576px) {
-  .about .image-gallery .gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
 }
 
 .about .image-gallery .gallery-item {
@@ -1588,10 +1680,9 @@ section,
 
 .about .image-gallery .main-image {
   position: relative;
-  height: 500px;
+  height: 400px;
   align-self: start;
   z-index: 1;
-  box-shadow: 0 20px 50px color-mix(in srgb, var(--default-color), transparent 85%);
 }
 
 .about .image-gallery .main-image img {
@@ -1619,56 +1710,29 @@ section,
 @media (max-width: 576px) {
   .about .image-gallery .main-image {
     height: 260px;
-    box-shadow: none;
   }
 }
 
 .about .image-gallery .side-image {
-  height: 420px;
-  align-self: end;
-  margin-left: -5rem;
-  margin-top: -5rem;
+  height: 400px;
   z-index: 3;
   position: relative;
-  border: 4px solid var(--surface-color);
-  box-shadow: 0 10px 40px color-mix(in srgb, var(--default-color), transparent 80%);
   border-radius: 16px;
-}
-
-@media (max-width: 992px) {
-  .about .image-gallery .side-image {
-    margin-left: -3rem;
-    margin-top: -3rem;
-    height: 320px;
-  }
+  overflow: hidden;
 }
 
 @media (max-width: 576px) {
   .about .image-gallery .side-image {
     height: 260px;
-    margin-left: 0;
-    margin-top: 0;
-    border-width: 0;
-    box-shadow: none;
   }
 }
 
 .about .image-gallery .experience-badge {
   position: absolute;
-  bottom: -20px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   z-index: 5;
-}
-
-@media (max-width: 576px) {
-  .about .image-gallery .experience-badge {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    bottom: auto;
-    transform: translate(-50%, -50%);
-  }
 }
 
 .about .image-gallery .experience-badge .badge-inner {

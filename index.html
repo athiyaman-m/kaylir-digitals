@@ -90,9 +90,27 @@
                 <span class="badge-tagline">யாவரும் கேளிர்</span>
               </div>
               <p class="hero-caption">We Are <span class="highlight">Digital Marketing Agency</span> in Tamil Nadu</p>
-              <!-- <h1>Your Business Is <span class="highlight"> Our </span> Business</h1> -->
-              <!-- <p class="hero-caption">We <span class="hl-accent">study</span> your business first. Then we <span class="hl-accent">build</span>.</p> -->
-              <br>
+
+              <div class="flash-sale">
+                <span class="flash-badge">🔥 FLASH SALE</span>
+                <span class="flash-text">Get <strong>30% OFF</strong> on All Services — Today Only!</span>
+                <div class="flash-timer">
+                  <div class="timer-unit">
+                    <span class="timer-digits" id="timer-hours">00</span>
+                    <span class="timer-label">Hours</span>
+                  </div>
+                  <span class="timer-sep">:</span>
+                  <div class="timer-unit">
+                    <span class="timer-digits" id="timer-minutes">00</span>
+                    <span class="timer-label">Minutes</span>
+                  </div>
+                  <span class="timer-sep">:</span>
+                  <div class="timer-unit">
+                    <span class="timer-digits" id="timer-seconds">00</span>
+                    <span class="timer-label">Seconds</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div><!-- End Header Column -->
 
@@ -1482,6 +1500,29 @@
   <div id="preloader"></div>
 
   <script>
+    // Flash sale daily countdown timer
+    (function() {
+      function updateTimer() {
+        var now = new Date();
+        var end = new Date(now);
+        end.setHours(23, 59, 59, 999);
+        var diff = end - now;
+        if (diff <= 0) return;
+        var hours = Math.floor(diff / 3600000);
+        var minutes = Math.floor((diff % 3600000) / 60000);
+        var seconds = Math.floor((diff % 60000) / 1000);
+        var pad = function(n) { return n < 10 ? '0' + n : '' + n; };
+        var hEl = document.getElementById('timer-hours');
+        var mEl = document.getElementById('timer-minutes');
+        var sEl = document.getElementById('timer-seconds');
+        if (hEl) hEl.textContent = pad(hours);
+        if (mEl) mEl.textContent = pad(minutes);
+        if (sEl) sEl.textContent = pad(seconds);
+      }
+      updateTimer();
+      setInterval(updateTimer, 1000);
+    })();
+
     // Portfolio rotator
     (function() {
       const slides = document.querySelectorAll('.rotator-slide');
