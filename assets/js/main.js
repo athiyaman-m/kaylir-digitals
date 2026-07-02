@@ -215,6 +215,39 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
   /**
+   * Chat Popup Toggle
+   */
+  function toggleChatPopup() {
+    const popup = document.getElementById('chatPopup');
+    const tooltip = document.getElementById('chatbotTooltip');
+    if (popup) {
+      popup.classList.toggle('open');
+    }
+    if (tooltip) {
+      tooltip.classList.remove('show');
+    }
+  }
+
+  window.toggleChatPopup = toggleChatPopup;
+
+  /**
+   * Show chatbot tooltip after user scrolls
+   */
+  let tooltipShown = false;
+  window.addEventListener('scroll', function() {
+    if (!tooltipShown && window.scrollY > 400) {
+      const tooltip = document.getElementById('chatbotTooltip');
+      if (tooltip) {
+        tooltip.classList.add('show');
+        tooltipShown = true;
+        setTimeout(function() {
+          tooltip.classList.remove('show');
+        }, 6000);
+      }
+    }
+  });
+
+  /**
    * Smooth reveal for animated counters on scroll
    */
   function initScrollAnimations() {
