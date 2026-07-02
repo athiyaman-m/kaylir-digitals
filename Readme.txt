@@ -1,4 +1,4 @@
 Thanks for downloading this template!
 
-Template Name: Kaylir Digitals
-Author: Kaylir Digitals
+Template Name: Kaylir Tech
+Author: Kaylir Tech

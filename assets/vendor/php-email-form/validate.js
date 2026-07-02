@@ -1,7 +1,7 @@
 /**
 * PHP Email Form Validation - v3.11
-* URL: https://kaylirdigitals.com
-* Author: Kaylir Digitals
+* URL: https://kaylirtech.com
+* Author: Kaylir Tech
 */
 (function () {
   "use strict";
